@@ -1,153 +1,278 @@
-# Generative AI Project Template
+# Generative AI Application Framework
 
-A structured template for building robust generative AI applications, with modular organization and best practices built-in.
+### A Modular Framework for Building LLM-Powered Applications
 
-![genai_project](https://github.com/honestsoul/generative_ai_project/blob/96dae125f58ede47f1bc3034790498f103903772/examples/genai_project.jpg)
+![Project](examples/genai_project.jpg)
 
+## Overview
 
+The **Generative AI Application Framework** is a Python-based project designed to provide a modular and reusable foundation for developing applications powered by Large Language Models (LLMs).
 
-## 🌟 Features
+The project aims to simplify the development of Generative AI applications by organizing essential components such as LLM provider integration, prompt engineering, API management, token counting, response caching, and error handling into separate modules.
 
-- Modular project structure for scalability
-- Pre-configured support for multiple LLM providers (Claude, GPT)
-- Built-in prompt engineering utilities
-- Rate limiting and token management
-- Robust error handling
-- Caching mechanism for API responses
-- Example implementations and notebooks
+The framework is designed with extensibility in mind, allowing developers to integrate different AI model providers and build customized AI-powered applications.
 
-## 📁 Project Structure
+## Project Objectives
 
-```
-generative_ai_project/
-├── config/                  # Configuration directory
+- Develop a modular architecture for Generative AI applications.
+- Integrate multiple Large Language Model providers.
+- Support OpenAI GPT and Anthropic Claude integrations.
+- Organize reusable prompt engineering techniques.
+- Manage API requests and token consumption.
+- Introduce response caching to reduce repeated API calls.
+- Improve reliability through logging and error handling.
+- Provide a foundation for future AI-powered applications.
+
+## Key Features
+
+| Feature | Description |
+|---|---|
+| Modular Architecture | Organized components for maintainability and extensibility |
+| LLM Integration | Planned support for OpenAI GPT and Anthropic Claude |
+| Prompt Engineering | Reusable templates and few-shot prompting |
+| Prompt Chaining | Structure multi-step AI workflows |
+| Token Management | Utilities for monitoring token consumption |
+| Rate Limiting | Manage API request frequency |
+| Response Caching | Store and reuse suitable previous responses |
+| Error Handling | Centralized application error management |
+| Experimentation | Notebooks for prompt and model experimentation |
+
+## System Architecture
+
+The framework is organized into five major layers:
+
+1. **Configuration Layer** – Manages model settings, prompt templates, and logging configuration.
+2. **LLM Integration Layer** – Provides a common structure for connecting different language model providers.
+3. **Prompt Engineering Layer** – Organizes prompt templates, few-shot examples, and prompt chaining.
+4. **Utility Layer** – Supports token counting, rate limiting, caching, and logging.
+5. **Experimentation Layer** – Provides example workflows and notebooks for testing and analysis.
+
+## Project Structure
+
+```text
+generative-ai-application-framework/
+│
+├── config/
 │   ├── __init__.py
-│   ├── model_config.yaml    # Model-specific configurations
-│   ├── prompt_templates.yaml # Prompt templates
-│   └── logging_config.yaml  # Logging settings
+│   ├── model_config.yaml
+│   ├── prompt_templates.yaml
+│   └── logging_config.yaml
 │
-├── src/                     # Source code
-│   ├── llm/                # LLM clients
-│   │   ├── base.py         # Base LLM client
-│   │   ├── claude_client.py # Anthropic Claude client
-│   │   ├── gpt_client.py   # OpenAI GPT client
-│   │   └── utils.py        # Shared utilities
-│   │
-│   ├── prompt_engineering/ # Prompt engineering tools
-│   │   ├── templates.py    # Template management
-│   │   ├── few_shot.py    # Few-shot prompt utilities
-│   │   └── chain.py       # Prompt chaining logic
-│   │
-│   ├── utils/             # Utility functions
-│   │   ├── rate_limiter.py # API rate limiting
-│   │   ├── token_counter.py # Token counting
-│   │   ├── cache.py       # Response caching
-│   │   └── logger.py      # Logging utilities
-│   │
-│   └── handlers/          # Error handling
-│       └── error_handler.py
+├── data/
+│   ├── cache/
+│   │   └── sample.json
+│   ├── prompts/
+│   │   └── sample.json
+│   ├── outputs/
+│   │   ├── sample.json
+│   │   └── embeddings/
+│   │       └── sample.json
+│   ├── sample.json
+│   ├── Generative_AI_Mastery_Checklist_Comprehensive.pdf
+│   └── Generative_AI_Mastery_Checklist_Comprehensive.docx
 │
-├── data/                   # Data directory
-│   ├── cache/             # Cache storage
-│   ├── prompts/           # Prompt storage
-│   ├── outputs/           # Output storage
-│   └── embeddings/        # Embedding storage
-│
-├── examples/              # Example implementations
+├── examples/
 │   ├── basic_completion.py
 │   ├── chat_session.py
-│   └── chain_prompts.py
+│   ├── chain_prompts.py
+│   └── genai_project.jpg
 │
-└── notebooks/            # Jupyter notebooks
-    ├── prompt_testing.ipynb
-    ├── response_analysis.ipynb
-    └── model_experimentation.ipynb
+├── notebooks/
+│   ├── prompt_testing.ipynb
+│   ├── response_analysis.ipynb
+│   └── model_experimentation.ipynb
+│
+└── src/
+    ├── handlers/
+    │   └── error_handler.py
+    │
+    ├── llm/
+    │   ├── base.py
+    │   ├── openai_client.py
+    │   ├── claude_client.py
+    │   └── utils.py
+    │
+    ├── prompt_engineering/
+    │   ├── templates.py
+    │   ├── few_shot.py
+    │   └── chain.py
+    │
+    └── utils/
+        ├── cache.py
+        ├── logger.py
+        ├── rate_limiter.py
+        └── token_counter.py
 ```
 
-## 🚀 Getting Started
+## Technologies
 
-1. Clone the repository:
+| Technology | Purpose |
+|---|---|
+| Python | Core development language |
+| OpenAI API | GPT model integration |
+| Anthropic API | Claude model integration |
+| YAML | Configuration management |
+| JSON | Structured data storage |
+| Jupyter Notebook | Experimentation and analysis |
+| Git & GitHub | Version control and collaboration |
+
+## Getting Started
+
+### Prerequisites
+
+- Python 3.10 or later
+- pip
+- Git
+- API credentials for the model provider you intend to use
+
+### 1. Clone the Repository
+
 ```bash
-git clone https://github.com/yourusername/generative_ai_project.git
-cd generative_ai_project
+git clone https://github.com/lokeshsolomon/generative-ai-application-framework.git
 ```
 
-2. Install dependencies:
+### 2. Navigate to the Project
+
 ```bash
-pip install -r requirements.txt
+cd generative-ai-application-framework
 ```
 
-3. Configure your environment:
-   - Copy `config/model_config.yaml.example` to `config/model_config.yaml`
-   - Add your API keys and configurations
+### 3. Create a Virtual Environment
 
-4. Review the examples in `examples/` directory
+```bash
+python -m venv venv
+```
 
-5. Start with the notebooks in `notebooks/` for experimentation
+Activate it on Windows:
 
-## 📘 Documentation
+```powershell
+venv\Scripts\activate
+```
 
-### Configuration
+Activate it on macOS or Linux:
 
-- `model_config.yaml`: Configure API keys and model parameters
-- `prompt_templates.yaml`: Define reusable prompt templates
-- `logging_config.yaml`: Configure logging behavior
+```bash
+source venv/bin/activate
+```
 
-### Key Components
+### 4. Install Dependencies
 
-1. **LLM Clients** (`src/llm/`)
-   - Base client with common functionality
-   - Specific implementations for different providers
-   - Utility functions for token counting and rate limiting
+The project dependency list is currently being prepared. Install the packages required by the modules as they are implemented.
 
-2. **Prompt Engineering** (`src/prompt_engineering/`)
-   - Template management system
-   - Few-shot prompt utilities
-   - Prompt chaining capabilities
+### 5. Configure API Credentials
 
-3. **Utilities** (`src/utils/`)
-   - Rate limiting for API calls
-   - Token counting
-   - Response caching
-   - Logging
+Use environment variables to store provider API credentials.
 
-## 🛠️ Development
+Example for Windows PowerShell:
 
-### Best Practices
+```powershell
+$env:OPENAI_API_KEY="your-openai-api-key"
+$env:ANTHROPIC_API_KEY="your-anthropic-api-key"
+```
 
-1. Keep configuration in YAML files
-2. Implement proper error handling
-3. Use rate limiting for APIs
-4. Maintain separation between model clients
-5. Cache results when appropriate
-6. Document your code
-7. Use notebooks for experimentation
+Never commit API keys or other sensitive credentials to GitHub.
 
-### Tips
+## Core Modules
 
-- Follow modular design principles
-- Write tests for new components
-- Use proper version control
-- Keep documentation updated
-- Monitor API usage and limits
+### LLM Integration
 
-## 🤝 Contributing
+The `src/llm/` module is designed to provide a common interface for interacting with different LLM providers.
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+- `base.py` – Common LLM interface.
+- `openai_client.py` – OpenAI integration.
+- `claude_client.py` – Anthropic Claude integration.
+- `utils.py` – Shared LLM utilities.
 
-## 📄 License
+### Prompt Engineering
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+The `src/prompt_engineering/` module is designed to provide reusable prompt-building functionality.
 
-## 👤 Author
+- `templates.py` – Prompt template management.
+- `few_shot.py` – Few-shot prompting.
+- `chain.py` – Multi-step prompt workflows.
 
-- **Brij Kishore Pandey**
+### Utility Components
 
-## 📧 Contact
+The `src/utils/` module is intended to manage:
 
-For any queries, reach out to:
-- GitHub: [@honestsoul](https://github.com/honestsoul)
-- Email: brij.pydata@gmail.com
+- API rate limiting.
+- Token counting.
+- Response caching.
+- Application logging.
+
+### Error Handling
+
+The `src/handlers/` module is intended to centralize application and API error handling.
+
+## Experimentation
+
+The `notebooks/` directory is organized for future experimentation:
+
+- `prompt_testing.ipynb` – Prompt experimentation.
+- `response_analysis.ipynb` – Generated response analysis.
+- `model_experimentation.ipynb` – Model experimentation.
+
+The `examples/` directory provides planned reference workflows for basic completion, chat sessions, and prompt chaining.
+
+## Development Roadmap
+
+- [ ] Implement the base LLM interface.
+- [ ] Develop OpenAI API integration.
+- [ ] Develop Anthropic Claude integration.
+- [ ] Implement reusable prompt templates.
+- [ ] Add few-shot prompting.
+- [ ] Develop prompt chaining.
+- [ ] Implement token counting.
+- [ ] Add API rate limiting.
+- [ ] Implement response caching.
+- [ ] Add centralized logging and error handling.
+- [ ] Develop and test example applications.
+- [ ] Complete experimentation notebooks.
+- [ ] Add automated testing.
+- [ ] Develop a user interface.
+- [ ] Explore Retrieval-Augmented Generation (RAG).
+- [ ] Explore AI agent workflows.
+
+## Future Enhancements
+
+Potential future improvements include:
+
+- Retrieval-Augmented Generation (RAG).
+- Vector database integration.
+- Embedding-based semantic search.
+- Multi-modal AI capabilities.
+- AI agent workflows and tool calling.
+- Advanced model evaluation.
+- Scalable application deployment.
+- Interactive web-based interface.
+
+## Project Status
+
+**Status: Under Development**
+
+This repository currently provides the initial project structure and architectural foundation. Individual modules, API integrations, examples, and experimentation workflows are planned for progressive implementation.
+
+## Contributing
+
+Contributions, suggestions, and improvements are welcome.
+
+1. Fork the repository.
+2. Create a new feature branch.
+3. Make your changes.
+4. Submit a pull request.
+
+## Author
+
+**Lokesh B**
+
+GitHub: [@lokeshsolomon](https://github.com/lokeshsolomon)
+
+## License
+
+A license has not yet been added to this repository. Licensing information will be provided in a future update.
 
 ---
-⭐ If you find this template useful, please consider giving it a star!
+
+⭐ If you find this project interesting, consider starring the repository!
+
+**Building modular and reusable Generative AI applications.**
